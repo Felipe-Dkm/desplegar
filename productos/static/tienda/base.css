@@ -11,7 +11,10 @@
 }
 
 body {
-    background-color: #F8F9FA;  /* Fondo gris claro */
+    background-image: url('../images/fondo5.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: #333;  /* Texto oscuro para contraste */
     display: flex;
     flex-direction: column;
