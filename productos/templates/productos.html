@@ -37,7 +37,7 @@
     <!-- Botones de filtro dinámico -->
     <div class="text-center mb-4">
         <a href="?categoria=Hombre" class="btn btn-primary">Hombre</a>
-        <a href="?categoria=Mujer" class="btn btn-danger">Mujer</a>
+        <a href="?categoria=Mujer" class="btn btn-primary">Mujer</a>
         <a href="{% url 'productos' %}" class="btn btn-secondary">Todos</a>
     </div>
 
@@ -55,7 +55,7 @@
                     <form method="POST" action="{% url 'productos' %}">
                         {% csrf_token %}
                         <input type="hidden" name="producto_id" value="{{ producto.id }}">
-                        <button type="submit" class="btn w-100 btn-success">
+                        <button type="submit" class="btn w-100 btn-primary">
                             Agregar al carrito
                         </button>
                     </form>
