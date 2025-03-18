@@ -6,8 +6,7 @@
 
 
 
-</head>
-<body>
+
 
     <div class="contact-container2">
 
@@ -28,8 +27,25 @@
                 </form>
             </div>
     </div>
-</body>
-</html>
+
+
+    <form method="POST">
+            {% csrf_token %}
+       
+   
+    
+                {% if messages %}
+                    <div>
+                        {% for message in messages %}
+                            <div class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+             {% endif %}
+    </form>
+
+
 
 <style>
     body{

@@ -34,6 +34,12 @@ header {
     
     
 }
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
 
 nav {
     background: #555;
@@ -64,7 +70,7 @@ h2 {
     margin-bottom: 20px;
 }
 footer {
-    background: #333;
+    background: #7bb8ea;
     color: white;
     text-align: center;
     padding: 10px;
