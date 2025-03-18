@@ -431,7 +431,27 @@ def enviar_correo_confirmacion(orden):
     📦 **Productos Comprados**:
     """
 
+    #contactenos
+
+
+def contact_view(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # Ejemplo de envío de correo (ajústalo según tus necesidades)
+        send_mail(
+            f'Mensaje de {name}',
+            message,
+            email,
+            ['tucorreo@ejemplo.com'],
+        )
+
+        messages.success(request, '¡Mensaje enviado con éxito!')
     
+    return render(request, 'contactenos.html')
+
 
 
 

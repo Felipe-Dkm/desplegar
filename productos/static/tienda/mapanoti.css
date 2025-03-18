@@ -1,54 +1,79 @@
-/* General */
-* {
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  h1, h2, h3 {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Sección de contacto */
   .contact-section {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
   
-  .contact-info {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  section {
-    margin-bottom: 20px;
-  }
-  
-  .location, .about-store, .relevant-data {
-    padding: 10px 0;
-  }
-  
-  /* Mapa */
-  .map-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  iframe {
+  .contact-container {
+    display: flex;
     width: 100%;
-    border-radius: 8px;
+    gap: 30px;
+  }
+  
+  .info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .info-card {
+    background-color: #fff;
+    border: 2px solid #e3e3e3;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .info-card:hover {
+    transform: translateY(-5px);
+    border-color: #7dbbed;
+  }
+  
+  .info-card h2 {
+    color: #88cdff;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .info-card p, .info-card ul {
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  .info-card ul {
+    padding-left: 20px;
+  }
+  
+  .map-container {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .map-container h2 {
+    background-color: #88cdff;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
   }
   
