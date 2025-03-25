@@ -312,7 +312,7 @@ def eliminar_item(request, item_id):
 
 
 from .models import Orden, OrdenItem, CarritoItem 
-from .forms import OrdenForm
+from .forms import PedidoForm
 
 
 def pasarela(request):
@@ -336,7 +336,7 @@ def pasarela(request):
         total += item.subtotal()
 
     if request.method == 'POST':
-        form = OrdenForm(request.POST)
+        form = PedidoForm(request.POST)
         metodo_pago = request.POST.get('metodo_pago')
 
         if form.is_valid() and metodo_pago:
@@ -386,15 +386,14 @@ def pasarela(request):
                     'email': request.user.email
                 }
 
-        form = OrdenForm(initial=initial_data)
+        form = PedidoForm(initial=initial_data)
 
-    return render(request, 'pasarela.html', {
+    return render(request, 'pasarela.html',  {
         'form': form,
         'carrito_items': carrito_items,
         'total': total
     })
-
-
+   
 def confirmacion(request, orden_id):
     try:
         if request.user.is_authenticated:
@@ -445,13 +444,28 @@ def contact_view(request):
             f'Mensaje de {name}',
             message,
             email,
-            ['tucorreo@ejemplo.com'],
+            ['ibanezfelipe426@gmail.com'],
         )
 
         messages.success(request, '¡Mensaje enviado con éxito!')
     
     return render(request, 'contactenos.html')
 
+# Agregar productos al mensaje
+    items = OrdenItem.objects.filter(orden=orden)
+    for item in items:
+        mensaje += f"\n - {item.cantidad} x {item.producto.nombre}(${item.precio} c/u)"
+
+        mensaje += "\n\nGracias por confiar en nosotros. �\n\nSaludos,\nTu tienda online"
+
+
+    send_mail(
+    asunto,
+    mensaje,
+    'ibanezfelipe426@gmail.com', # Correo del remitente
+    [orden.email],
+    fail_silently=False,
+    )
 
 
 

@@ -97,5 +97,37 @@ Electrónico</label>
         </div> 
     </div> 
 </div> 
+<!-- Script para mostrar QR y comprobante según el método de pago seleccionado -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const metodoPagoRadios = document.querySelectorAll('input[name="metodo_pago"]');
+        const qrContainer = document.getElementById('qr_container');
+        const qrImagen = document.getElementById('qr_imagen');
+        const comprobanteContainer = document.getElementById('comprobante_container');
+
+        metodoPagoRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (radio.value === 'nequi') {
+                    qrImagen.src = "{% static 'img/qr_nequi.png' %}";
+                    qrContainer.style.display = 'block';
+                    comprobanteContainer.style.display = 'block';
+                } else if (radio.value === 'daviplata') {
+                    qrImagen.src = "{% static 'img/qr_daviplata.png' %}";
+                    qrContainer.style.display = 'block';
+                    comprobanteContainer.style.display = 'block';
+                } else {
+                    qrContainer.style.display = 'none';
+                    comprobanteContainer.style.display = 'none';
+                }
+            });
+
+            // Mostrar QR si el valor ya está seleccionado al cargar la página
+            if (radio.checked) {
+                radio.dispatchEvent(new Event('change'));
+            }
+        });
+    });
+</script>
+
 {% endblock %} 
  
