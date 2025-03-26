@@ -49,3 +49,4 @@ path('contactenos/', views.contact_view, name='contactenos'),
     # Manual de usuario
     path('manual/', views.manual, name='manual'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

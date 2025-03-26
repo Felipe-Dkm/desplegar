@@ -412,8 +412,8 @@ def confirmacion(request, orden_id):
 
 def enviar_correo_confirmacion(Orden):
     send_mail(
-        "Confirmación de tu Pedido",
-        f"Hola {Orden.nombre},\n\nGracias por tu pedido en Chokdog.\n\n"
+        "Confirmación de tu Pedido en nuestra tienda",
+        f"Hola {Orden.nombre},\n\nGracias por tu pedido en Urban style.\n\n"
         f"Método de pago: {Orden.metodo_pago}\n"
         f"Total: ${Orden.total}\n\n",
         "ibanezfelipe426@gmail.com",
