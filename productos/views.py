@@ -1,6 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-import json
-import os
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
@@ -13,7 +11,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth import logout
 from .models import Producto
-from django.shortcuts import redirect
 from .models import CarritoItem
 from .models import Datos
 from django.core.mail import send_mail
@@ -413,22 +410,24 @@ def confirmacion(request, orden_id):
         return redirect('productos')
 
 
-def enviar_correo_confirmacion(orden):
-    """ Envía un correo de confirmación al cliente """
-    asunto = f"Confirmación de Pedido #{orden.id}"
-    mensaje = f"""
-    Hola {orden.nombre},
-
-    Gracias por tu compra. Hemos recibido tu pedido y estamos verificando el pago.
-
-    🛍 **Detalles del Pedido**
-    - Número de Pedido: {orden.id}
-    - Total: ${orden.total}
-    - Método de Pago: {orden.get_metodo_pago_display()}
-    - Fecha: {orden.fecha_creacion.strftime('%d/%m/%Y %H:%M')}
-
-    📦 **Productos Comprados**:
-    """
+def enviar_correo_confirmacion(Orden):
+    send_mail(
+        "Confirmación de tu Pedido",
+        f"Hola {Orden.nombre},\n\nGracias por tu pedido en Chokdog.\n\n"
+        f"Método de pago: {Orden.metodo_pago}\n"
+        f"Total: ${Orden.total}\n\n",
+        "ibanezfelipe426@gmail.com",
+        [Orden.email]
+    )
+  # 🔹 Enviar correo al administrador
+    send_mail(
+        f"Nuevo Pedido Recibido de {Orden.nombre}",
+        f"📢 Nuevo Pedido Recibido\n\n"
+        f"Cliente: {Orden.nombre}\nCorreo: {Orden.email}\n"
+        f"Método de pago: {Orden.metodo_pago}\nTotal: ${Orden.total}\n\n",
+        "ibanezfelipe426@gmail.com",
+        ["ibanezfelipe426@gmail.com"]
+    )
 
     #contactenos
 

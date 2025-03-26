@@ -1,37 +1,36 @@
 /* Estilos para la página de inicio de sesión */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #a7c7ffbe;
-    color: #bfe3fa;
+    background: linear-gradient(135deg, #e6f0ff, #f0f5ff);
+    color: #033468;
 }
 
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 60vh;
+    height: 100vh;
     padding: 30px;
 }
 
 .div {
-    background-color: #cde5f7;
+    background-color: #ffffff;
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     text-align: center;
-    border: 2px solid #033468;
+    border-top: 5px solid #466eaa;
 }
 
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #033468;
-    font-size: 24px;
+    color: #466eaa;
+    font-size: 28px;
 }
 
 input[type="text"],
@@ -39,8 +38,8 @@ input[type="password"] {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 2px solid #466eaa;
+    border-radius: 25px;
     font-size: 16px;
 }
 
@@ -50,25 +49,28 @@ input[type="password"] {
 
 #togglePassword {
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    color: #466eaa;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: #033468;
+    background-color: #466eaa;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #033468;
+    background-color: #5a82c7;
+    transform: scale(1.05);
 }
 
 p {
@@ -78,8 +80,9 @@ p {
 }
 
 a {
-    color: #033468;
+    color: #466eaa;
     text-decoration: none;
+    font-weight: bold;
 }
 
 a:hover {

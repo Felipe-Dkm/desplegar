@@ -27,3 +27,40 @@ p {
 .btn-1:hover {
     background-color: #83756e;
 }
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-txt {
+        max-width: 100%;
+    }
+
+    .header-txt h1 {
+        font-size: 60px;
+        line-height: 70px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .header-img img {
+        max-width: 100%;
+    }
+}
+
+/* Media query para portátiles y pantallas medianas */
+@media (max-width: 1024px) {
+    .header-txt h1 {
+        font-size: 100px;
+        line-height: 110px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}

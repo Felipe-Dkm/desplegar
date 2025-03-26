@@ -40,6 +40,10 @@ class CarritoItem(models.Model):
 
 
 class Orden(models.Model):
+    
+    METODOS_PAGO = [
+        ('nequi', 'Nequi'),
+    ]
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     nombre = models.CharField(max_length=200)
     email = models.EmailField()
@@ -48,7 +52,7 @@ class Orden(models.Model):
     total = models.DecimalField(max_digits=10, decimal_places=0)
     metodo_pago = models.CharField(
         max_length=20,
-        choices=[('nequi', 'Nequi'), ('bancolombia', 'Bancolombia')]
+        choices=METODOS_PAGO
     )
     pagado = models.BooleanField(default=False)
     fecha_creacion = models.DateTimeField(auto_now_add=True)

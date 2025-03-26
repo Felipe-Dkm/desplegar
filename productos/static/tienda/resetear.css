@@ -1,72 +1,107 @@
-/* Estilos específicos para la página de restablecer contraseña */
-main{
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #929292;
-
+/* Estilos para la página de inicio de sesión */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #e6f0ff, #f0f5ff);
+    color: #033468;
 }
 
-/* .cont{
-    border: solid 1px red;
-    padding: 20px;
-    box-shadow: 3px 3px 8px black;
-} */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 30px;
+}
 
-.cont {
-    background-color: #929292;
+.div, .cont {
+    background-color: #ffffff;
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     text-align: center;
-    border: 2px solid #033468;
-    margin: 50px auto;
+    border-top: 5px solid #466eaa;
 }
 
 h2 {
-    color: #033468;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-p {
-    font-size: 16px;
+    text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: #466eaa;
+    font-size: 28px;
 }
 
+input[type="text"],
+input[type="password"],
 input[type="email"] {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 2px solid #466eaa;
+    border-radius: 25px;
     font-size: 16px;
+}
+
+.password-container {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #466eaa;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: #033468;
+    background-color: #466eaa;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #022c5b;
+    background-color: #5a82c7;
+    transform: scale(1.05);
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+a {
+    color: #466eaa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* Diseño Responsivo */
-@media (max-width: 480px) {
-    .container {
+@media (max-width: 768px) {
+    .div, .cont {
         width: 90%;
         padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .div, .cont {
+        width: 100%;
+        padding: 20px;
     }
     h2 {
         font-size: 20px;

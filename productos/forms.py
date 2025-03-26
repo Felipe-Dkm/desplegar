@@ -4,13 +4,12 @@ from .models import Orden
 class OrdenForm(forms.ModelForm):
     METODOS_PAGO = [
         ('nequi', 'nequi'),
-        ('bancolombia', 'bancolombia'),
+        
     ]
 
 class PedidoForm(forms.ModelForm):
     METODOS_PAGO = [
         ('nequi', 'Nequi'),
-        ('bancolombia', 'Bancolombia'),
     ]
     
     metodo_pago = forms.ChoiceField(choices=METODOS_PAGO, widget=forms.RadioSelect)
