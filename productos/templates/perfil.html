@@ -20,6 +20,9 @@
             <a href="{% url 'editar_perfil' uidb64=usuario_uid token=usuario_token %}" class="btn-action">Cambiar contraseña</a>
             <a href="{% url 'logout' %}" class="btn-action logout">Cerrar sesión</a>
         </div>
+        <a href="{% url 'historial' %}" class="btn btn-primary">
+            <button>historial</button>
+        </a>
     </div>
 </main>
 

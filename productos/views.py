@@ -78,6 +78,11 @@ def confirmar(request):
 
 def resetear(request):
     return render(request, "restablecer.html")
+def historial(request):
+    compras = Historial.objects.filter(usuario=request.user)
+    return render(request, 'productos/historial.html', {'compras': compras})
+
+
 
 
 
@@ -465,6 +470,16 @@ def contact_view(request):
     [orden.email],
     fail_silently=False,
     )
+    
+  #aparatdddo de historial  
+
+from django.contrib.auth.decorators import login_required
+from .models import Historial
+
+@login_required
+def historial(request):
+    compras = Historial.objects.filter(usuario=request.user).order_by('-fecha_compra')
+    return render(request, 'historial.html', {'compras': compras})
 
 
 

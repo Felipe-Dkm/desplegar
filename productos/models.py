@@ -78,3 +78,35 @@ class Datos(models.Model):
 
 
 
+class Historial(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.SET_NULL, null=True)
+    cantidad = models.PositiveIntegerField()
+    precio_total = models.DecimalField(max_digits=10, decimal_places=2)
+    fecha_compra = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.usuario.username} - {self.producto.nombre} - {self.fecha_compra.strftime('%d/%m/%Y')}"
+
+
+from .models import Historial
+
+def confirmar(request):
+    if request.method == 'POST':
+        carrito = request.session.get('carrito', {})
+        print("Contenido del carrito:", carrito)  # <-- Verifica si el carrito tiene productos
+        
+        for item_id, item_data in carrito.items():
+            producto = Producto.objects.get(id=item_id)
+            Historial.objects.create(
+                usuario=request.user,
+                producto=producto,
+                cantidad=item_data['cantidad'],
+                precio_total=producto.precio * item_data['cantidad']
+            )
+        
+        # Limpia el carrito después de guardar la compra
+        request.session['carrito'] = {}
+        return redirect('historial')
+
+

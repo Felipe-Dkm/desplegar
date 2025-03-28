@@ -45,8 +45,12 @@ path('contactenos/', views.contact_view, name='contactenos'),
     path('pasarela/', views.pasarela, name='pasarela'), 
     path('confirmac/<int:orden_id>/', views.confirmacion, name='confirmar'), 
     path('confirmar/', views.confirmar, name='confirmar'),
+    path('historial/', views.historial, name='historial'),
 
     # Manual de usuario
     path('manual/', views.manual, name='manual'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+    
 
